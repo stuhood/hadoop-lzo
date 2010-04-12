@@ -121,7 +121,11 @@
       <exclude name="**/excluded/" />
     </fileset>
     <pathelement location="${conf.dir}"/>
-    <path refid="ivy-common.classpath"/>
+    <pathelement location=""/>
+    <fileset dir="${common.ivy.lib.dir}">
+      <include name="**/*.jar" />
+      <exclude name="**/excluded/" />
+    </fileset>
   </path>
 
   <!-- the unit test classpath: uses test.src.dir for configuration -->
@@ -167,7 +171,7 @@
   <!-- ====================================================== -->
   <!-- Stuff needed by all targets                            -->
   <!-- ====================================================== -->
-  <target name="init" depends="ivy-retrieve-common">
+  <target name="init">
     <mkdir dir="${build.dir}"/>
     <mkdir dir="${build.classes}"/>
     <mkdir dir="${build.src}"/>

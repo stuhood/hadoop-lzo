@@ -577,7 +577,8 @@
     <ivy:cachepath pathid="javadoc-classpath" conf="javadoc"/>
   </target>
 
-  <target name="ready-to-publish" depends="jar,ivy-resolve"/>
+  <!-- jars fetched by ivy should be embedded -->
+  <target name="ready-to-publish" depends="jar"/>
 
   <target name="ivy-publish-local" depends="ready-to-publish,ivy-resolve">
     <ivy:publish

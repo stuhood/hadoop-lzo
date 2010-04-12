@@ -387,7 +387,7 @@
     </javadoc>
   </target>     
 
-  <target name="javadoc" depends="compile, ivy-retrieve-javadoc" 
+  <target name="javadoc" depends="compile" 
           description="Generate javadoc">
     <mkdir dir="${build.javadoc}"/>
     <javadoc
@@ -406,7 +406,6 @@
 
         <classpath >
           <path refid="classpath" />
-          <path refid="javadoc-classpath"/>
           <pathelement path="${java.class.path}"/>
           <pathelement location="${build.tools}"/>
         </classpath>
